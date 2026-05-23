@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floral Vibes - Giới Thiệu & Liên Hệ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+   
+    color: #333;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================
+   HEADER STYLES
+   ========================================== */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.logo {
+    font-size: 24px;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-weight: bold;
+    color: #222;
+}
+
+.hotline {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.social-icons img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: auto;
+}
+
+.header-nav a {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+}
+
+.header-nav a.active, .header-nav a:hover {
+    color: #f7607e;
+    border-bottom: 2px solid #f7607e;
+}
+
+/* ==========================================
+   MAIN CONTENT STYLES
+   ========================================== */
+.contact-wrapper {
+    flex: 1;
+    padding: 40px 0 80px 0;
+    background: url('image/backround.png') no-repeat center center fixed;
+    
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.page-main-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #333;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+/* --- Khối Giới Thiệu (Phía trên) --- */
+.intro-section {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 80px;
+}
+
+.intro-block h3, .values-block h3 {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.intro-block p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.intro-block p strong {
+    color: #111;
+    display: block;
+    margin-top: 10px;
+}
+
+.intro-image-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.intro-image-box img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 40px; /* Bo góc sâu theo hình thiết kế */
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+}
+
+.value-item {
+    margin-bottom: 25px;
+}
+
+.value-item h4 {
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.value-item p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* --- Khối Liên Hệ (Phía dưới) --- */
+.section-divider-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Cột trái: Thông tin & Hỗ trợ nhanh */
+.contact-info-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    background-color: #ffffff;
+    border: 1px solid #e2dbcd;
+    border-radius: 20px;
+    padding: 30px 35px;
+}
+
+.info-line {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+.info-line strong {
+    font-weight: 600;
+}
+
+.info-line a {
+    color: #333;
+    text-decoration: underline;
+}
+
+.info-line span {
+    display: block;
+    font-size: 16px;
+    color: #555;
+    margin-top: 4px;
+    padding-left: 15px;
+}
+
+.support-card {
+    background-color: #f7ede9; /* Nền hồng beige nhạt */
+    border-radius: 20px;
+    padding: 25px 35px;
+}
+
+.support-card h4 {
+    font-size: 20px;
+    color: #444;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.support-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.call-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    cursor: pointer;
+}
+
+.call-btn i {
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+.call-btn span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.chat-input-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 5px 5px 5px 20px;
+    height: 48px;
+}
+
+.chat-input-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+}
+
+.btn-chat-now {
+    background-color: #70655e;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 0 20px;
+    height: 100%;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-chat-now:hover {
+    background-color: #554b46;
+}
+
+/* Cột phải: Form gửi tin nhắn */
+.contact-form-card {
+    background-color: #ffffff;
+    border: 1px solid #e2dbcd;
+    border-radius: 20px;
+    padding: 35px 40px;
+}
+
+.contact-form-card h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 6px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #decbbe;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    background-color: #fdfcf9;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #e58a9c;
+}
+
+.form-group textarea {
+    height: 110px;
+    resize: none;
+}
+
+.btn-send-message {
+    width: 100%;
+    padding: 14px;
+    background-color: #fcaeb5; /* Màu hồng pastel theo nút Gửi Đi */
+    color: #333;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+.btn-send-message:hover {
+    background-color: #f99aa3;
+}
+
+/* ==========================================
+   FOOTER STYLES
+   ========================================== */
+.main-footer {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;            
+    padding: 30px 60px;             
+    background-color: #f7f7f7;      
+    border-top: 1px solid #eaeaea;  
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer-left .brand-name {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 600;
+    color: #222222;
+}
+
+.footer-left .brand-copyright {
+    font-size: 11px;
+    color: #888888;
+}
+
+.footer-center {
+    display: flex;
+    gap: 35px; 
+}
+
+.footer-center a {
+    font-family: 'Georgia', serif;
+    font-size: 13px;
+    color: #777777;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-center a:hover {
+    color: #b05c6d;
+}
+
+.footer-right {
+    display: flex;
+    gap: 20px; 
+}
+
+.footer-right i {
+    font-size: 18px;
+    color: #888888;
+    cursor: pointer;
+}
+
+/* ==========================================
+   RESPONSIVE STYLES
+   ========================================== */
+@media (max-width: 992px) {
+    .intro-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .intro-image-box {
+        order: -1; /* Đẩy hình lên trước ở màn hình vừa */
+    }
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    .header-nav {
+        margin-left: 0;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main-footer {
+        flex-direction: column; 
+        gap: 25px;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    .footer-left {
+        align-items: center; 
+    }
+    .footer-center {
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 15px 25px;
+    }
+}
+    </style>
+</head>
+<body>
+<div class="app-container">
+  
+  <header class="main-header">
+    <div class="header-left">
+      <div class="logo">Floral Vibes</div>
+      <div class="hotline">HOTLINE: 1900 333 5688</div>
+      <div class="social-icons">
+          <img src="image/fb.png" alt="Facebook">
+          <img src="image/twitter.png" alt="Twitter">
+          <img src="image/tiktok.png" alt="Tiktok">
+      </div>
+    </div>
+    <nav class="header-nav">
+      <a href="#">Shop</a>
+      <a href="#">Collections</a>
+      <a href="#">Sustainability</a>
+      <a href="#" class="active">Journal</a>
+      <a href="#"> <img src="image/car.png" style="height:20px;"> </a>
+      <a href="#"><img src="image/avatar.png" style="height:20px;"></a>
+    </nav>
+  </header>
+
+  <main class="contact-wrapper">
+    <div class="container">
+      
+      <h1 class="page-main-title">Giới Thiệu & Liên Hệ</h1>
+      
+      <section class="intro-section">
+        
+        <div class="intro-block">
+          <h3>Câu Chuyện Của Chúng Tôi</h3>
+          <p><strong>Mỗi đóa hoa, một câu chuyện.</strong> Mỗi nhành hoa đều mang một vẻ đẹp riêng và đóa hoa chúng tôi mang đến cho bạn luôn chứa đựng những thông điệp trọn vẹn nhất.</p>
+          <p><strong>Cam kết chất lượng.</strong> Chúng tôi cam kết hoa luôn tươi mới, được lựa chọn kỹ lưỡng từng bông hoa để mang đến cho bạn những sản phẩm hoàn hảo và bền đẹp nhất.</p>
+          <p><strong>Thiết kế sáng tạo.</strong> Đội ngũ nghệ nhân cắm hoa tận tâm, sáng tạo luôn chăm chút đến từng chi tiết nhỏ nhất để tạo nên những mẫu hoa độc đáo, mang phong cách riêng.</p>
+        </div>
+        
+        <div class="intro-image-box">
+          <img src="image/people.png" alt="Floral Vibes Staff">
+        </div>
+        
+        <div class="values-block">
+          <h3>Giá Trị Cốt Lõi</h3>
+          
+          <div class="value-item">
+            <h4>Chất Lượng Tươi Mới.</h4>
+            <p>Chất lượng hoa tươi mới<br>Sản phẩm an toàn</p>
+          </div>
+          
+          <div class="value-item">
+            <h4>Thiết Kế Độc Đáo</h4>
+            <p>Thiết kế độc đáo với từng loại hoa</p>
+          </div>
+          
+          <div class="value-item">
+            <h4>Dịch Vụ Tận Tâm</h4>
+            <p>Luôn lắng nghe và thấu hiểu khách hàng để mang đến trải nghiệm dịch vụ tốt nhất</p>
+          </div>
+        </div>
+
+      </section>
+
+      <h2 class="section-divider-title">Liên hệ với chúng tôi</h2>
+      
+      <section class="contact-grid">
+        
+        <div class="contact-info-panel">
+          
+          <div class="info-card">
+            <div class="info-line">
+              <strong>Số điện thoại:</strong> 0323354545
+            </div>
+            <div class="info-line">
+              <strong>Email:</strong> <a href="mailto:info@gmail.com">info@gmail.com</a>
+            </div>
+            <div class="info-line">
+              <strong>Địa chỉ cửa hàng:</strong>
+              <span>Cao Lỗ, Phường Chánh Hưng, HCM</span>
+              <span>654, Quận Hoàn Kiếm, HN</span>
+            </div>
+            <div class="info-line">
+              <strong>Giờ mở cửa:</strong> 7h30-17h30
+            </div>
+          </div>
+          
+          <div class="support-card">
+            <h4>Hổ trợ nhanh</h4>
+            <div class="support-row">
+              <div class="call-btn">
+                <i class="fa-solid fa-phone"></i>
+                <span>Call</span>
+              </div>
+              <div class="chat-input-box">
+                <input type="text" placeholder="Nhập tin nhắn hỗ trợ...">
+                <button type="button" class="btn-chat-now">Chat Ngay</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="contact-form-card">
+          <h3>Gửi Tin Nhắn Cho Chúng Tôi</h3>
+          
+          <form>
+            <div class="form-group">
+              <label>Họ và tên</label>
+              <input type="text" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Số điện thoại</label>
+              <input type="tel" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Nội dung</label>
+              <textarea required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-send-message">Gửi Đi</button>
+          </form>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-left">
+      <h3 class="brand-name">Floral Vibes</h3>
+      <p class="brand-copyright">© 2024 Floral Vibes. Curated with intentionality.</p>
+    </div>
+
+    <nav class="footer-center">
+      <a href="#">Shipping Policy</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact Us</a>
+    </nav>
+
+    <div class="footer-right">
+      <i class="fa-solid fa-share-nodes icon-share"> <img src="image/share.png"></i>
+      <i class="fa-solid fa-globe icon-globe"> <img src="image/connect.png"></i>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

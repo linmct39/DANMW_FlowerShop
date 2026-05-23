@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floral Vibes - Đăng Ký</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================
+   HEADER STYLES
+   ========================================== */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.logo {
+    font-size: 24px;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-weight: bold;
+    color: #222;
+}
+
+.hotline {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 30px;
+    margin-left: auto;
+}
+
+.header-nav a {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+}
+
+.header-nav a.active, .header-nav a:hover {
+    color: #f7607e;
+    border-bottom: 2px solid #f7607e;
+}
+
+/* ==========================================
+   REGISTER WRAPPER & CARD STYLES
+   ========================================== */
+.login-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background: url('background-garden.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.page-title {
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.login-card {
+    display: flex;
+    width: 900px;
+    max-width: 100%;
+    height: 580px; /* Tăng nhẹ chiều cao để vừa vặn 4 ô input thoải mái */
+    background-color: #e5a9b4; 
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-left-banner {
+    flex: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card-left-banner img {
+    max-width: 130%;
+    max-height: 130%;
+    object-fit: contain;
+}
+
+.card-right-form {
+    flex: 55%;
+    background-color: #fffdf3;
+    margin: 12px; 
+    border-radius: 20px;
+    border: 2px solid #f3e1b9; 
+    padding: 30px 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-right-form h2 {
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.auth-form {
+    width: 100%;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 14px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    color: #e58a9c; 
+    font-weight: 600;
+    margin-bottom: 4px;
+    margin-left: 15px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 11px 20px;
+    border: 1.5px solid #f7d6dc;
+    border-radius: 30px; 
+    outline: none;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #b05c6d;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 13px;
+    background-color: #982845; 
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #7a1e35;
+}
+
+/* ==========================================
+   FOOTER STYLES
+   ========================================== */
+.main-footer {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;            
+    padding: 30px 60px;             
+    background-color: #f7f7f7;      
+    border-top: 1px solid #eaeaea;  
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer-left .brand-name {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 600;
+    color: #222222;
+}
+
+.footer-left .brand-copyright {
+    font-size: 11px;
+    color: #888888;
+}
+
+.footer-center {
+    display: flex;
+    gap: 35px; 
+}
+
+.footer-center a {
+    font-family: 'Georgia', serif;
+    font-size: 13px;
+    color: #777777;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-center a:hover {
+    color: #b05c6d;
+}
+
+.footer-right {
+    display: flex;
+    gap: 20px; 
+}
+
+.footer-right i {
+    font-size: 18px;
+    color: #888888;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-right i:hover {
+    color: #333333;
+    transform: scale(1.08); 
+}
+
+@media (max-width: 768px) {
+    .login-card {
+        flex-direction: column;
+        height: auto;
+    }
+    .card-left-banner {
+        display: none; /* Ẩn banner ở màn hình nhỏ giống cấu trúc login */
+    }
+    .main-footer {
+        flex-direction: column; 
+        gap: 25px;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    .footer-left {
+        align-items: center; 
+    }
+    .footer-center {
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 15px 25px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="app-container">
+  
+  <header class="main-header">
+    <div class="header-left">
+      <div class="logo">Floral Vibes</div>
+      <div class="hotline">HOTLINE: 1900 333 5688</div>
+    </div>
+    <nav class="header-nav">
+      <a href="#" class="active">Shop</a>
+      <a href="#">Collections</a>
+      <a href="#">Sustainability</a>
+      <a href="#">Journal</a>
+      <a href="#"> <img src="image/car.png"> </a>
+      <a href="#"><img src="image/avatar.png"></a>
+    </nav>
+  </header>
+
+  <main class="login-wrapper">
+    <h1 class="page-title">ĐĂNG KÝ</h1>
+    
+    <div class="login-card">
+      
+      <div class="card-left-banner">
+        <img src="image/image 13.png" alt="Golden Bouquet">
+      </div>
+      
+      <div class="card-right-form">
+        <h2>ĐĂNG KÝ</h2>
+        
+        <form class="auth-form">
+          <div class="form-group">
+            <label>Họ và tên</label>
+            <input type="text" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <label>Số điện thoại</label>
+            <input type="tel" placeholder="">
+          </div>
+          
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="">
+          </div>
+          
+          <div class="form-group">
+            <label>Mật Khẩu</label>
+            <input type="password" placeholder="">
+          </div>
+          
+          <button type="submit" class="btn-submit">Đăng Ký</button>
+        </form>
+
+      </div>
+      
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-left">
+      <h3 class="brand-name">Floral Vibes</h3>
+      <p class="brand-copyright">© 2024 Floral Vibes. Curated with intentionality.</p>
+    </div>
+
+    <nav class="footer-center">
+      <a href="#">Shipping Policy</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact Us</a>
+    </nav>
+
+    <div class="footer-right">
+      <i class="fa-solid fa-share-nodes icon-share"> <img src="image/share.png"></i>
+      <i class="fa-solid fa-globe icon-globe"> <img src="image/connect.png"></i>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
