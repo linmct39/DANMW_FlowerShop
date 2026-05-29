@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh mục sản phẩm- Floral Vibes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="product-page">
+        <h1 class="page-title">Danh mục sản phẩm</h1>
+
+        <div class="filter-section">
+            <ul class="category-menu">
+                <li><a href="#">Tất cả</a></li>
+                <li><a href="#">Hoa Hồng</a></li>
+                <li><a href="#">Hoa Tulip</a></li>
+                <li><a href="#">Hoa Lan</a></li>
+            </ul>
+
+            <div class="search-box"> 
+                <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                <button type="submit" class="search-icon">
+                    <img src="image/search.png" alt="Search" style="width: 18px; height: 18px;">
+                </button>
+            </div>
+        </div>
+
+        <div class="product-grid" id="product-grid">
+        </div>
+
+        <div class="pagination">
+            <a href="#" class="prev">&lt;</a>
+            <a href="#" class="page-number active">1</a>
+            <a href="#" class="page-number">2</a>
+            <a href="#" class="page-number">3</a>
+            <a href="#" class="next">&gt;</a>
+        </div>
+    </main>
+
+    <script>
+        fetch('header/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Lỗi khi load header:', error));
+    </script>
+
+    <script src="js/product.js"></script>
+</body>
+
+</html>

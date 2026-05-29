@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header - Floral Vibes</title>
+    <style>
+       .main-header {
+            background-color: #fafafa;
+            border-bottom: 1px solid #eaeaea;
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .header-container {
+            width: 100%; /* Ép khung giãn nở 100% */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box; /* Ngăn padding làm tràn khung ngang */
+        }
+
+        /* Logo */
+        .logo {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 26px;
+            font-style: italic;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            margin-right: 50px; /* Đẩy menu ra xa logo một khoảng cố định */
+        }
+
+        /* Navigation */
+        .main-nav {
+            flex-grow: 1; /* Bắt menu phải chiếm hết phần không gian trống ở giữa */
+            display: flex;
+            justify-content: flex-start; /* Căn menu lệch về bên trái một chút sát với logo */
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #777;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav a.active,
+        .main-nav a:hover {
+            color: #f18a90; /* Màu hồng pastel */
+            border-bottom: 2px solid #f18a90;
+        }
+
+        /* Icons Container */
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .header-icons .icon {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        /* Hình ảnh icon */
+        .header-icons .icon-img {
+            width: 24px;     
+            height: 24px;      
+            object-fit: contain;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">Floral Vibes</a>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../dashboard.html" class="active">SẢN PHẨM</a></li>
+                    <li><a href="#">BỘ SƯU TẬP</a></li>
+                    <li><a href="#">BLOG</a></li>
+                    <li><a href="#">VỀ CHÚNG TÔI</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-icons">
+                <a href="#" class="icon" aria-label="Giỏ hàng">
+                    <img src="../image/car.png" alt="Giỏ hàng" class="icon-img" onerror="this.src='image/avatar.png'">
+                </a>
+                
+                <a href="../login.html" class="icon" aria-label="Tài khoản">
+                    <img src="../image/avatar.png" alt="Tài khoản" class="icon-img">
+                </a>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
