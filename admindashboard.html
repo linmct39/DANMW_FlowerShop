@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý hàng tồn kho - Floral Vibes Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <script>
+        // Phân quyền (Role Authorization)
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (!currentUser || currentUser.role !== 'admin') {
+            alert('Bạn không có quyền truy cập trang quản trị!');
+            window.location.href = 'login.html';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="admin-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="brand">
+                    <h2>Floral Vibes</h2>
+                    <p>QUẢN LÝ</p>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="coming-soon.html" class="nav-item"><img src="image/icon-dashboard.png" class="sidebar-icon"
+                            alt="Tổng quan"> Tổng quan</a>
+                    <a href="#" class="nav-item active"><img src="image/icon-inventory.png" class="sidebar-icon"
+                            alt="Hàng tồn kho"> Hàng tồn kho</a>
+                    <a href="coming-soon.html" class="nav-item"><img src="image/icon-order.png" class="sidebar-icon" alt="Đơn hàng">
+                        Đơn hàng</a>
+                    <a href="coming-soon.html" class="nav-item"><img src="image/icon-customer.png" class="sidebar-icon"
+                            alt="Khách hàng"> Khách hàng</a>
+                    <a href="coming-soon.html" class="nav-item"><img src="image/icon-setting.png" class="sidebar-icon" alt="Cài đặt">
+                        Cài đặt</a>
+                </nav>
+            </div>
+            <div class="sidebar-bottom">
+                <button class="btn-sidebar-add" id="btn-sidebar-add-product">+ Thêm sản phẩm</button>
+                <a href="login.html" class="nav-item logout" onclick="localStorage.removeItem('currentUser')"><img src="image/icon-logout.png" class="sidebar-icon"
+                        alt="Đăng xuất"> Đăng xuất</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="admin-header">
+                <div class="header-titles">
+                    <h1>QUẢN LÝ HÀNG TỒN KHO</h1>
+                    <p>Tuyển chọn và quản lý chính xác kho của bạn</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <img src="image/search.png" alt="Tìm kiếm" class="header-icon">
+                        <input type="text" placeholder="Tìm kiếm hoa...">
+                    </div>
+                    <button class="btn-filter"><img src="image/icon-filter.png" alt="Lọc" class="header-icon"></button>
+                </div>
+            </header>
+
+            <section class="metrics-grid">
+                <div class="metric-card">
+                    <p class="metric-title">TỔNG SỐ SẢN PHẨM</p>
+                    <div class="metric-value">
+                        <h2>124</h2>
+                        <span class="badge up">+12%</span>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <p class="metric-title">TRONG KHO</p>
+                    <div class="metric-value">
+                        <h2>2,840</h2>
+                        <span class="badge status-green">Healthy</span>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <p class="metric-title">ĐƠN HÀNG</p>
+                    <div class="metric-value">
+                        <h2>18</h2>
+                        <span class="badge status-orange">Action Required</span>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <p class="metric-title">DOANH THU</p>
+                    <div class="metric-value">
+                        <h2>32.000.000vnđ</h2>
+                        <span class="badge up">+8%</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="data-section">
+                <div class="section-header">
+                    <h3>Quản lý danh sách hoa</h3>
+                    <div class="section-actions">
+                        <button class="btn-export">Export CSV</button>
+                        <button class="btn-primary" id="btn-add-product">+ Thêm sản phẩm mới</button>
+                    </div>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>TÊN SẢN PHẨM</th>
+                            <th>DANH MỤC</th>
+                            <th>GIÁ</th>
+                            <th>TỒN KHO</th>
+                            <th>THAO TÁC</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-product-list">
+                        <!-- Rendered by admin-crud.js -->
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="orders-section">
+                <div class="section-header">
+                    <h3>Quản lý đơn hàng</h3>
+                    <a href="coming-soon.html" class="view-all">Xem tất cả đơn hàng</a>
+                </div>
+                <div class="orders-grid">
+                    <div class="order-card">
+                        <div class="order-top">
+                            <span class="tag tag-yellow">CHỜ XỬ LÝ</span>
+                            <span class="order-id">#ORD-9421</span>
+                        </div>
+                        <h4>Lê Minh Tuấn</h4>
+                        <p class="order-desc">Hồng Sa Mạc (x2), Loa Kèn (x1)</p>
+                        <div class="order-bottom">
+                            <div class="order-total">
+                                <span>Total</span>
+                                <strong>700k</strong>
+                            </div>
+                            <button class="btn-dark">Update Status</button>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="order-top">
+                            <span class="tag tag-green">ĐÃ GIAO</span>
+                            <span class="order-id">#ORD-9418</span>
+                        </div>
+                        <h4>Nguyễn Thủy Chi</h4>
+                        <p class="order-desc">Oải Hương Pháp (x5)</p>
+                        <div class="order-bottom">
+                            <div class="order-total">
+                                <span>Total</span>
+                                <strong>1tr200</strong>
+                            </div>
+                            <button class="btn-light">Completed</button>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="order-top">
+                            <span class="tag tag-pink">ĐANG GIAO</span>
+                            <span class="order-id">#ORD-9420</span>
+                        </div>
+                        <h4>Trần Hoàng Nam</h4>
+                        <p class="order-desc">Lan Hồ Điệp (x1)</p>
+                        <div class="order-bottom">
+                            <div class="order-total">
+                                <span>Total</span>
+                                <strong>500k</strong>
+                            </div>
+                            <button class="btn-dark">Track Shipment</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Edit/Add Modal Container -->
+    <div id="product-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div style="background: #fff; padding: 30px; border-radius: 12px; width: 400px;">
+            <h3 id="modal-title" style="margin-bottom: 20px;">Thêm Sản Phẩm</h3>
+            <input type="hidden" id="modal-product-index">
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; font-size: 13px; margin-bottom: 5px;">Tên sản phẩm</label>
+                <input type="text" id="modal-name" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; font-size: 13px; margin-bottom: 5px;">Mô tả</label>
+                <textarea id="modal-desc" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px;"></textarea>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; font-size: 13px; margin-bottom: 5px;">Giá (VNĐ)</label>
+                <input type="text" id="modal-price" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; font-size: 13px; margin-bottom: 5px;">Danh mục</label>
+                <select id="modal-cat" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px;">
+                    <option value="ALL">Tất cả</option>
+                    <option value="ROSE">Hoa Hồng</option>
+                    <option value="TULIP">Hoa Tulip</option>
+                    <option value="ORCHID">Hoa Lan</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 25px;">
+                <label style="display:block; font-size: 13px; margin-bottom: 5px;">Đường dẫn ảnh</label>
+                <input type="text" id="modal-image" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px;">
+            </div>
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                <button type="button" onclick="closeModal()" style="padding: 8px 15px; border: none; background: #eee; border-radius: 6px; cursor: pointer;">Hủy</button>
+                <button type="button" onclick="saveProduct()" style="padding: 8px 15px; border: none; background: #795555; color: white; border-radius: 6px; cursor: pointer;">Lưu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/product.js"></script>
+    <script src="js/admin-crud.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cảm ơn bạn đã đặt hàng! - Floral Vibes</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 50px;
+            border-radius: 12px;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 500px;
+        }
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px auto;
+            color: #4caf50;
+            font-size: 40px;
+        }
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            color: #795555;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #888;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .countdown {
+            font-weight: bold;
+            color: #f18a90;
+        }
+        .btn-home {
+            display: inline-block;
+            background-color: #795555;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-home:hover {
+            background-color: #5e4242;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon-wrapper">
+            ✓
+        </div>
+        <h1>Đặt Hàng Thành Công!</h1>
+        <p>Cảm ơn bạn đã mua sắm tại Floral Vibes. Đơn hàng của bạn đang được chúng tôi xử lý và sẽ sớm được giao đến bạn.</p>
+        <p>Tự động chuyển về trang chủ sau <span id="countdown" class="countdown">5</span> giây...</p>
+        <a href="home.html" class="btn-home">Về Trang Chủ Ngay</a>
+    </div>
+
+    <script>
+        let timeLeft = 5;
+        const countdownEl = document.getElementById('countdown');
+        
+        const timer = setInterval(() => {
+            timeLeft--;
+            countdownEl.innerText = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                window.location.href = "home.html";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

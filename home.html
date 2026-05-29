@@ -456,22 +456,7 @@ a {
 <body>
 <div class="app-container">
   
-  <header class="main-header">
-    <div class="header-left">
-      <div class="logo"><a href="index.html">Floral Vibes</a></div>
-      <div class="hotline">HOTLINE: 1900 333 5688</div>
-      <div class="social-icons"> </div>
-    </div>
-    <nav class="header-nav">
-      <a href="home.html">Shop</a>
-      <a href="product.html">Collections</a>
-      <a href="home.html">Sustainability</a>
-      <a href="home.html">Journal</a>
-      <a href="product.html"> <img src="image/car.png" style="height:20px;"> </a>
-      <a href="login.html"><img src="image/avatar.png" style="height:20px;"></a>
-    </nav>
-    <div class="header-right"></div>
-  </header>
+  <div id="header-placeholder"></div>
 
   <main class="home-wrapper">
     <div class="container">
@@ -480,15 +465,15 @@ a {
       
       <section class="shop-filter-bar">
         <div class="categories" id="category-filter">
-          <a href="#" class="active">ALL</a>
-          <a href="#">ROSE</a>
-          <a href="#">TULIP</a>
-          <a href="#">LILY</a>
-          <a href="#">ORCHID</a>
+          <a href="#" class="active" data-cat="ALL">TẤT CẢ</a>
+          <a href="#" data-cat="ROSE">HOA HỒNG</a>
+          <a href="#" data-cat="TULIP">HOA TULIP</a>
+          <a href="#" data-cat="LILY">HOA LY</a>
+          <a href="#" data-cat="ORCHID">HOA LAN</a>
         </div>
 
         <div class="search-box">
-          <input type="text" id="search-input" placeholder="Search flowers...">
+          <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm...">
           <button type="button" class="btn-search">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -722,10 +707,10 @@ a {
     </div>
 
    <nav class="footer-center">
-      <a href="contact.html">Shipping Policy</a>
-      <a href="contact.html">Privacy</a>
-      <a href="contact.html">Terms of Service</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="coming-soon.html">Chính sách giao hàng</a>
+      <a href="coming-soon.html">Bảo mật</a>
+      <a href="coming-soon.html">Điều khoản dịch vụ</a>
+      <a href="contact.html">Liên hệ</a>
     </nav>
 
     <div class="footer-right">
@@ -749,8 +734,25 @@ a {
     }
 
     function quickAddToCart(event, productName) {
-    
         event.stopPropagation();
+        const card = event.target.closest('.product-card');
+        let price = 0, image = '', desc = '';
+        if(card) {
+            const priceText = card.querySelector('.product-price').innerText;
+            price = parseInt(priceText.replace(/\\D/g, '')) || 0;
+            image = card.querySelector('img').getAttribute('src');
+            desc = card.querySelector('.product-desc').innerText;
+        }
+
+        if (typeof addToCart === 'function') {
+            addToCart({
+                name: productName,
+                price: price,
+                image: image,
+                quantity: 1,
+                category: desc
+            });
+        }
         alert(`Đã thêm nhanh bó [${productName}] vào giỏ hàng thành công!`);
     }
 
@@ -773,6 +775,13 @@ a {
     let activePage = 1;          
     let currentCategory = 'ALL'; 
     let searchQuery = '';        
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search');
+    if (searchParam) {
+        searchQuery = searchParam.trim();
+        if (searchInput) searchInput.value = searchQuery;
+    }
 
     function updateGallery() {
         const filteredProducts = allProducts.filter(product => {
@@ -835,7 +844,7 @@ a {
             e.preventDefault();
             categoryLinks.forEach(item => item.classList.remove('active'));
             this.classList.add('active');
-            currentCategory = this.innerText.trim();
+            currentCategory = link.getAttribute('data-cat') || link.innerText.trim();
             activePage = 1; 
             updateGallery();
         });
@@ -870,6 +879,16 @@ a {
     });
 
     updateGallery();
+</script>
+<script src="js/cart-counter.js"></script>
+<script>
+    fetch('header/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            if (typeof updateCartBadge === 'function') updateCartBadge();
+        })
+        .catch(error => console.error('Lỗi khi load header:', error));
 </script>
 </body>
 </html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đang Phát Triển - Floral Vibes</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 50px;
+            border-radius: 12px;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 500px;
+        }
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: #fff0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px auto;
+        }
+        .icon-wrapper img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            color: #795555;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #888;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .btn-back {
+            display: inline-block;
+            background-color: #795555;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-back:hover {
+            background-color: #5e4242;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon-wrapper">
+            <img src="image/icon-setting.png" alt="Đang phát triển" onerror="this.src='image/avatar.png'">
+        </div>
+        <h1>Tính Năng Đang Phát Triển</h1>
+        <p>Tính năng này hiện đang được đội ngũ Floral Vibes xây dựng và hoàn thiện. Vui lòng quay lại trong các phiên bản cập nhật tới nhé!</p>
+        <button class="btn-back" onclick="history.back()">Quay Lại Trang Trước</button>
+    </div>
+</body>
+</html>

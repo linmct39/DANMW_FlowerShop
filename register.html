@@ -283,20 +283,7 @@ a {
 <body>
     <div class="app-container">
   
-  <header class="main-header">
-    <div class="header-left">
-      <div class="logo">Floral Vibes</div>
-      <div class="hotline">HOTLINE: 1900 333 5688</div>
-    </div>
-    <nav class="header-nav">
-      <a href="#">Shop</a>
-      <a href="#">Collections</a>
-      <a href="#">Sustainability</a>
-      <a href="#">Journal</a>
-      <a href="#"> <img src="image/car.png"> </a>
-      <a href="#"><img src="image/avatar.png"></a>
-    </nav>
-  </header>
+  <div id="header-placeholder"></div>
 
   <main class="login-wrapper">
     <h1 class="page-title">ĐĂNG KÝ</h1>
@@ -346,10 +333,10 @@ a {
     </div>
 
     <nav class="footer-center">
-      <a href="contact.html">Shipping Policy</a>
-      <a href="contact.html">Privacy</a>
-      <a href="contact.html">Terms of Service</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="contact.html">Chính sách giao hàng</a>
+      <a href="contact.html">Bảo mật</a>
+      <a href="contact.html">Điều khoản dịch vụ</a>
+      <a href="contact.html">Liên hệ</a>
     </nav>
 
     <div class="footer-right">
@@ -386,5 +373,15 @@ a {
 });
 </script>
 
+<script src="js/cart-counter.js"></script>
+<script>
+    fetch('header/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            if (typeof updateCartBadge === 'function') updateCartBadge();
+        })
+        .catch(error => console.error('Lỗi khi load header:', error));
+</script>
 </body>
 </html>

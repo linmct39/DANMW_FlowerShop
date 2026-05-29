@@ -382,23 +382,7 @@ a {
 <body>
     <div class="app-container">
   
-  <header class="main-header">
-    <div class="header-left">
-      <div class="logo">Floral Vibes</div>
-      <div class="hotline">HOTLINE: 1900 333 5688</div>
-      <div class="social-icons"> </div>
-    </div>
-    <nav class="header-nav">
-      <a href="#">Shop</a>
-      <a href="#">Collections</a>
-      <a href="#">Sustainability</a>
-      <a href="#">Journal</a>
-      <a href="#"> <img src="image/car.png"> </a>
-      <a href="#"><img src="image/avatar.png"></a>
-    </nav>
-    <div class="header-right">
-      </div>
-  </header>
+  <div id="header-placeholder"></div>
 
   <main class="login-wrapper">
     <h1 class="page-title">ĐĂNG NHẬP</h1>
@@ -421,7 +405,7 @@ a {
           <div class="form-group">
             <label>Mật Khẩu</label>
             <input type="password" id="password-input" placeholder="Nhập mật khẩu..." required>
-            <a href="#" class="forgot-password">Quên Mật Khẩu?</a>
+            <a href="coming-soon.html" class="forgot-password">Quên Mật Khẩu?</a>
           </div>
           
           <button type="submit" class="btn-submit">ĐĂNG NHẬP</button>
@@ -432,9 +416,9 @@ a {
         
         </div>
         <div class="mxh">
-                <a href=""><img src="image/fb.png"></a> 
-                <a href=""> <img src="image/gg.png"></a>
-                <a href=""> <img src="image/tiktok.png"></a>
+                <a href="coming-soon.html"><img src="image/fb.png"></a> 
+                <a href="coming-soon.html"> <img src="image/gg.png"></a>
+                <a href="coming-soon.html"> <img src="image/tiktok.png"></a>
         </div>
         <div class="register-redirect">
           Chưa có tài khoản? <a href="register.html">Đăng ký</a>
@@ -452,10 +436,10 @@ a {
   </div>
 
   <nav class="footer-center">
-      <a href="contact.html">Shipping Policy</a>
-      <a href="contact.html">Privacy</a>
-      <a href="contact.html">Terms of Service</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="coming-soon.html">Chính sách giao hàng</a>
+      <a href="coming-soon.html">Bảo mật</a>
+      <a href="coming-soon.html">Điều khoản dịch vụ</a>
+      <a href="contact.html">Liên hệ</a>
     </nav>
 
   <div class="footer-right">
@@ -473,12 +457,22 @@ a {
     const emailValue = document.getElementById('email-input').value.trim();
     const passwordValue = document.getElementById('password-input').value;
 
+    // Hardcode tài khoản Admin
+    if (emailValue === 'admin@floralvibes.com' && passwordValue === 'admin123') {
+        alert('Đăng nhập quản trị viên thành công!');
+        localStorage.setItem('currentUser', JSON.stringify({ email: emailValue, role: 'admin', name: 'Admin' }));
+        window.location.href = 'admindashboard.html';
+        return;
+    }
+
+    // Tài khoản User thông thường
     const savedAccount = localStorage.getItem(emailValue);
 
     if (savedAccount) {
         const user = JSON.parse(savedAccount);
         if (user.password === passwordValue) {
             alert(`Chào mừng ${user.name} đã quay trở lại!`);
+            localStorage.setItem('currentUser', JSON.stringify({ email: emailValue, role: 'user', name: user.name }));
             window.location.href = 'home.html';
             return;
         }
@@ -488,5 +482,15 @@ a {
 });
 </script>
 
+<script src="js/cart-counter.js"></script>
+<script>
+    fetch('header/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            if (typeof updateCartBadge === 'function') updateCartBadge();
+        })
+        .catch(error => console.error('Lỗi khi load header:', error));
+</script>
 </body>
 </html>

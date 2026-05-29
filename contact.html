@@ -409,25 +409,7 @@ a {
 <body>
 <div class="app-container">
   
-  <header class="main-header">
-    <div class="header-left">
-      <div class="logo">Floral Vibes</div>
-      <div class="hotline">HOTLINE: 1900 333 5688</div>
-      <div class="social-icons">
-          <img src="image/fb.png" alt="Facebook">
-          <img src="image/twitter.png" alt="Twitter">
-          <img src="image/tiktok.png" alt="Tiktok">
-      </div>
-    </div>
-    <nav class="header-nav">
-      <a href="home.html">Shop</a>
-      <a href="product.html">Collections</a>
-      <a href="home.html">Sustainability</a>
-      <a href="home.html">Journal</a>
-      <a href="product.html"> <img src="image/car.png" style="height:20px;"> </a>
-      <a href="login.html"><img src="image/avatar.png" style="height:20px;"></a>
-    </nav>
-  </header>
+  <div id="header-placeholder"></div>
 
   <main class="contact-wrapper">
     <div class="container">
@@ -547,10 +529,10 @@ a {
     </div>
 
     <nav class="footer-center">
-      <a href="contact.html">Shipping Policy</a>
-      <a href="contact.html">Privacy</a>
-      <a href="contact.html">Terms of Service</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="coming-soon.html">Chính sách giao hàng</a>
+      <a href="coming-soon.html">Bảo mật</a>
+      <a href="coming-soon.html">Điều khoản dịch vụ</a>
+      <a href="contact.html">Liên hệ</a>
     </nav>
 
     <div class="footer-right">
@@ -560,5 +542,15 @@ a {
   </footer>
 
 </div>
+<script src="js/cart-counter.js"></script>
+<script>
+    fetch('header/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            if (typeof updateCartBadge === 'function') updateCartBadge();
+        })
+        .catch(error => console.error('Lỗi khi load header:', error));
+</script>
 </body>
 </html>

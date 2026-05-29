@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Giỏ Hàng - Floral Vibes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (!currentUser) {
+            alert("Vui lòng đăng nhập để xem giỏ hàng!");
+            window.location.href = "login.html";
+        } else if (currentUser.role === 'admin') {
+            alert("Tài khoản quản trị không sử dụng tính năng này!");
+            window.location.href = "admindashboard.html";
+        }
+    </script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="cart-page">
+        <div class="cart-header">
+            <h1>Giỏ Hàng của bạn</h1>
+            <p id="cart-count-text"> 3 sản phẩm trong giỏ hàng của bạn</p>
+        </div>
+
+        <div class="cart-layout">
+            <div class="cart-items" id="cart-items-container">
+        </div>
+        <div class="cart-summary">
+                <h2>Tóm tắt đơn hàng</h2>
+                
+                <div class="summary-row">
+                    <span>Tạm tính</span>
+                    <span id="subtotal-price">2.040.000đ</span>
+                </div>
+                <div class="summary-row">
+                    <span>Phí vận chuyển</span>
+                    <span class="light-text">Tính bước sau</span>
+                </div>
+                
+                <div class="summary-row total-row">
+                    <span>Tổng cộng</span>
+                    <span id="total-price">2.040.000đ</span>
+                </div>
+
+                <button class="btn-checkout" onclick="goToCheckout()">Đến trang thanh toán</button>
+                
+                <div class="continue-shopping-wrap">
+                    <a href="dashboard.html" class="continue-shopping">TIẾP TỤC MUA SẮM</a>
+                </div>
+
+                <div class="free-shipping-notice">
+                    <span class="truck-icon" > 
+                        <img src="image/truck.png" alt="Truck Icon" style="width: 16px; height: 16px;">
+                    </span> Miễn phí vận chuyển cho đơn trên 3.000.000đ
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        fetch('header/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Lỗi khi load header:', error));
+    </script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

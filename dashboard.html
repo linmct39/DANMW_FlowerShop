@@ -15,16 +15,16 @@
         <h1 class="page-title">Danh mục sản phẩm</h1>
 
         <div class="filter-section">
-            <ul class="category-menu">
-                <li><a href="#">Tất cả</a></li>
-                <li><a href="#">Hoa Hồng</a></li>
-                <li><a href="#">Hoa Tulip</a></li>
-                <li><a href="#">Hoa Lan</a></li>
+            <ul class="category-menu" id="dashboard-category-filter">
+                <li><a href="#" class="active" data-cat="ALL">Tất cả</a></li>
+                <li><a href="#" data-cat="ROSE">Hoa Hồng</a></li>
+                <li><a href="#" data-cat="TULIP">Hoa Tulip</a></li>
+                <li><a href="#" data-cat="ORCHID">Hoa Lan</a></li>
             </ul>
 
             <div class="search-box"> 
-                <input type="text" placeholder="Tìm kiếm sản phẩm...">
-                <button type="submit" class="search-icon">
+                <input type="text" id="dashboard-search-input" placeholder="Tìm kiếm sản phẩm...">
+                <button type="button" class="search-icon" id="dashboard-search-btn">
                     <img src="image/search.png" alt="Search" style="width: 18px; height: 18px;">
                 </button>
             </div>
@@ -42,11 +42,13 @@
         </div>
     </main>
 
+    <script src="js/cart-counter.js"></script>
     <script>
         fetch('header/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
+                if (typeof updateCartBadge === 'function') updateCartBadge();
             })
             .catch(error => console.error('Lỗi khi load header:', error));
     </script>

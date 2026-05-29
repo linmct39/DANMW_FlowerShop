@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán - Floral Vibes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (!currentUser) {
+            alert("Vui lòng đăng nhập để thực hiện thanh toán!");
+            window.location.href = "login.html";
+        } else if (currentUser.role === 'admin') {
+            alert("Tài khoản quản trị không sử dụng tính năng này!");
+            window.location.href = "admindashboard.html";
+        }
+    </script>
+</head>
+<body class="bg-light">
+    <div id="header-placeholder"></div>
+
+    <main class="checkout-page">
+        <div class="checkout-container">
+            
+            <form id="checkout-form" class="checkout-form-section" onsubmit="handleCheckout(event)">
+                
+                <div class="step-group">
+                    <div class="step-header">
+                        <span class="step-num">01</span>
+                        <h2>Thông tin vận chuyển</h2>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>HỌ TÊN (*)</label>
+                            <input type="text" id="fullname" required placeholder="Họ tên của bạn">
+                        </div>
+                        <div class="form-group">
+                            <label>SĐT (*)</label>
+                            <input type="text" id="phone" required placeholder="090 000 0000">
+                        </div>
+                        <div class="form-group">
+                            <label>EMAIL (OPTIONAL)</label>
+                            <input type="email" placeholder="floralvibes@example.com">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>ĐỊA CHỈ GIAO HÀNG (*)</label>
+                            <input type="text" id="address" required placeholder="VD: 180 Cao Lỗ, Phường 4, Quận 8, TP HCM">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-group">
+                    <div class="step-header">
+                        <span class="step-num">02</span>
+                        <h2>Phương thức thanh toán</h2>
+                    </div>
+                    <div class="payment-methods">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" checked>
+                            <span class="radio-custom"></span>
+                            <div class="payment-info">
+                                <img src="image/bank.png" alt="Bank" class="checkout-icon" onerror="this.src='image/avatar.png'">
+                                <div>
+                                    <strong>Chuyển khoản qua ngân hàng</strong>
+                                    <p>Chuyển khoản trực tiếp</p>
+                                </div>
+                            </div>
+                        </label>
+                        
+                        <label class="payment-option">
+                            <input type="radio" name="payment">
+                            <span class="radio-custom"></span>
+                            <div class="payment-info">
+                                <img src="image/truck.png" alt="COD" class="checkout-icon" onerror="this.src='image/avatar.png'">
+                                <div>
+                                    <strong>COD</strong>
+                                    <p>Cash on delivery (Thanh toán khi nhận hàng)</p>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="step-group">
+                    <div class="step-header">
+                        <span class="step-num">03</span>
+                        <h2>Lời chúc viết trên thiệp (Miễn Phí)</h2>
+                    </div>
+                    <div class="message-box">
+                        <label>LỜI CHÚC CỦA BẠN</label>
+                        <textarea placeholder="Hãy ghi những điều yêu thương của bạn ở đây để Floral Vibes gửi cho người thương của bạn"></textarea>
+                        <div class="message-note">
+                            <img src="image/sparkle.png" alt="Note" class="tiny-icon" onerror="this.src='image/avatar.png'">
+                            <span>Chúng tôi sẽ thực hiện viết tay hoàn toàn 100% gửi gắm chân thành từ quý khách đến người thương</span>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <div class="checkout-summary-section">
+                <div class="summary-card">
+                    <h3>Đơn đặt hàng</h3>
+                    
+                    <div class="order-items" id="checkout-items">
+                        <!-- JS Will Render Here -->
+                    </div>
+
+                    <div class="summary-totals">
+                        <div class="total-row">
+                            <span>SUBTOTAL</span>
+                            <span id="checkout-subtotal">0đ</span>
+                        </div>
+                        <div class="total-row">
+                            <span>SHIPPING</span>
+                            <span>Free</span>
+                        </div>
+                        <div class="total-row final-total">
+                            <span>Total</span>
+                            <span class="price-large" id="checkout-total">0đ</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-checkout-final" type="submit" form="checkout-form">
+                        HOÀN TẤT THANH TOÁN 
+                        <img src="image/arrow-right.png" alt="Arrow" class="arrow-icon" onerror="this.style.display='none'">
+                    </button>
+                    <p class="checkout-terms">Khi ấn vào "Hoàn tất thanh toán" có nghĩa là bạn đồng ý với điều khoản và dịch vụ của Floral Vibes</p>
+                </div>
+
+                <div class="guarantee-card">
+                    <img src="image/seal.png" alt="Cam kết" class="seal-icon" onerror="this.src='image/avatar.png'">
+                    <div>
+                        <strong>LỜI CAM KẾT:</strong>
+                        <p>Mỗi bó hoa đều được các nghệ nhân cắm hoa từ chúng tôi tuyển chọn kỹ lưỡng và giao tận nơi trong vòng 4 giờ.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/cart-counter.js"></script>
+    <script>
+        fetch('header/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                updateCartCount();
+            });
+    </script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>
