@@ -12,34 +12,26 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 body {
    
     color: #333;
 }
-
 .app-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
-
 a {
     text-decoration: none;
     color: inherit;
     transition: all 0.3s ease;
 }
-
 .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
-
-/* ==========================================
-   HEADER STYLES
-   ========================================== */
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -48,13 +40,11 @@ a {
     background-color: #ffffff;
     border-bottom: 1px solid #eaeaea;
 }
-
 .header-left {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
-
 .logo {
     font-size: 24px;
     font-family: 'Georgia', serif;
@@ -62,32 +52,27 @@ a {
     font-weight: bold;
     color: #222;
 }
-
 .hotline {
     font-size: 11px;
     color: #888;
     letter-spacing: 1px;
 }
-
 .social-icons {
     display: flex;
     gap: 10px;
     margin-top: 5px;
 }
-
 .social-icons img {
     width: 20px;
     height: 20px;
     cursor: pointer;
 }
-
 .header-nav {
     display: flex;
     align-items: center;
     gap: 30px;
     margin-left: auto;
 }
-
 .header-nav a {
     font-size: 14px;
     text-transform: uppercase;
@@ -95,15 +80,10 @@ a {
     letter-spacing: 1px;
     padding-bottom: 5px;
 }
-
 .header-nav a.active, .header-nav a:hover {
     color: #f7607e;
     border-bottom: 2px solid #f7607e;
 }
-
-/* ==========================================
-   MAIN CONTENT STYLES
-   ========================================== */
 .contact-wrapper {
     flex: 1;
     padding: 40px 0 80px 0;
@@ -112,7 +92,6 @@ a {
     background-size: cover;
     background-attachment: fixed;
 }
-
 .page-main-title {
     text-align: center;
     font-size: 32px;
@@ -122,8 +101,6 @@ a {
     margin-bottom: 50px;
     text-transform: uppercase;
 }
-
-/* --- Khối Giới Thiệu (Phía trên) --- */
 .intro-section {
     display: grid;
     grid-template-columns: 1.1fr 1fr 1fr;
@@ -161,29 +138,25 @@ a {
 .intro-image-box img {
     width: 100%;
     max-width: 320px;
-    border-radius: 40px; /* Bo góc sâu theo hình thiết kế */
+    border-radius: 40px;
     object-fit: cover;
     aspect-ratio: 3 / 4;
 }
-
 .value-item {
     margin-bottom: 25px;
 }
-
 .value-item h4 {
     font-size: 18px;
     color: #222;
     margin-bottom: 5px;
     font-weight: 500;
 }
-
 .value-item p {
     font-size: 14px;
     color: #666;
     line-height: 1.5;
 }
 
-/* --- Khối Liên Hệ (Phía dưới) --- */
 .section-divider-title {
     text-align: center;
     font-size: 28px;
@@ -199,36 +172,30 @@ a {
     gap: 40px;
 }
 
-/* Cột trái: Thông tin & Hỗ trợ nhanh */
 .contact-info-panel {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-
 .info-card {
     background-color: #ffffff;
     border: 1px solid #e2dbcd;
     border-radius: 20px;
     padding: 30px 35px;
 }
-
 .info-line {
     font-size: 18px;
     color: #333;
     margin-bottom: 18px;
     line-height: 1.6;
 }
-
 .info-line strong {
     font-weight: 600;
 }
-
 .info-line a {
     color: #333;
     text-decoration: underline;
 }
-
 .info-line span {
     display: block;
     font-size: 16px;
@@ -236,26 +203,22 @@ a {
     margin-top: 4px;
     padding-left: 15px;
 }
-
 .support-card {
-    background-color: #f7ede9; /* Nền hồng beige nhạt */
+    background-color: #f7ede9; 
     border-radius: 20px;
     padding: 25px 35px;
 }
-
 .support-card h4 {
     font-size: 20px;
     color: #444;
     font-weight: 400;
     margin-bottom: 15px;
 }
-
 .support-row {
     display: flex;
     align-items: center;
     gap: 20px;
 }
-
 .call-btn {
     display: flex;
     flex-direction: column;
@@ -263,17 +226,14 @@ a {
     color: #333;
     cursor: pointer;
 }
-
 .call-btn i {
     font-size: 26px;
     margin-bottom: 5px;
 }
-
 .call-btn span {
     font-size: 14px;
     font-weight: 600;
 }
-
 .chat-input-box {
     flex: 1;
     display: flex;
@@ -283,7 +243,6 @@ a {
     padding: 5px 5px 5px 20px;
     height: 48px;
 }
-
 .chat-input-box input {
     flex: 1;
     border: none;
@@ -291,7 +250,6 @@ a {
     font-size: 14px;
     background: transparent;
 }
-
 .btn-chat-now {
     background-color: #70655e;
     color: #ffffff;
@@ -303,37 +261,30 @@ a {
     cursor: pointer;
     transition: background-color 0.2s;
 }
-
 .btn-chat-now:hover {
     background-color: #554b46;
 }
-
-/* Cột phải: Form gửi tin nhắn */
 .contact-form-card {
     background-color: #ffffff;
     border: 1px solid #e2dbcd;
     border-radius: 20px;
     padding: 35px 40px;
 }
-
 .contact-form-card h3 {
     font-size: 20px;
     color: #333;
     margin-bottom: 25px;
     font-weight: 500;
 }
-
 .form-group {
     margin-bottom: 18px;
 }
-
 .form-group label {
     display: block;
     font-size: 14px;
     color: #777;
     margin-bottom: 6px;
 }
-
 .form-group input, .form-group textarea {
     width: 100%;
     padding: 12px 15px;
@@ -344,20 +295,17 @@ a {
     background-color: #fdfcf9;
     transition: border-color 0.2s;
 }
-
 .form-group input:focus, .form-group textarea:focus {
     border-color: #e58a9c;
 }
-
 .form-group textarea {
     height: 110px;
     resize: none;
 }
-
 .btn-send-message {
     width: 100%;
     padding: 14px;
-    background-color: #fcaeb5; /* Màu hồng pastel theo nút Gửi Đi */
+    background-color: #fcaeb5; 
     color: #333;
     border: none;
     border-radius: 25px;
@@ -367,14 +315,9 @@ a {
     transition: background-color 0.2s;
     margin-top: 10px;
 }
-
 .btn-send-message:hover {
     background-color: #f99aa3;
 }
-
-/* ==========================================
-   FOOTER STYLES
-   ========================================== */
 .main-footer {
     display: flex;
     justify-content: space-between; 
@@ -383,13 +326,11 @@ a {
     background-color: #f7f7f7;      
     border-top: 1px solid #eaeaea;  
 }
-
 .footer-left {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
-
 .footer-left .brand-name {
     font-family: 'Georgia', serif;
     font-style: italic;
@@ -397,17 +338,14 @@ a {
     font-weight: 600;
     color: #222222;
 }
-
 .footer-left .brand-copyright {
     font-size: 11px;
     color: #888888;
 }
-
 .footer-center {
     display: flex;
     gap: 35px; 
 }
-
 .footer-center a {
     font-family: 'Georgia', serif;
     font-size: 13px;
@@ -415,38 +353,30 @@ a {
     text-decoration: none;
     transition: color 0.2s ease;
 }
-
 .footer-center a:hover {
     color: #b05c6d;
 }
-
 .footer-right {
     display: flex;
     gap: 20px; 
 }
-
 .footer-right i {
     font-size: 18px;
     color: #888888;
     cursor: pointer;
 }
-
-/* ==========================================
-   RESPONSIVE STYLES
-   ========================================== */
 @media (max-width: 992px) {
     .intro-section {
         grid-template-columns: 1fr;
         gap: 30px;
     }
     .intro-image-box {
-        order: -1; /* Đẩy hình lên trước ở màn hình vừa */
+        order: -1; 
     }
     .contact-grid {
         grid-template-columns: 1fr;
     }
 }
-
 @media (max-width: 768px) {
     .main-header {
         flex-direction: column;
@@ -490,12 +420,12 @@ a {
       </div>
     </div>
     <nav class="header-nav">
-      <a href="#">Shop</a>
-      <a href="#">Collections</a>
-      <a href="#">Sustainability</a>
-      <a href="#" class="active">Journal</a>
-      <a href="#"> <img src="image/car.png" style="height:20px;"> </a>
-      <a href="#"><img src="image/avatar.png" style="height:20px;"></a>
+      <a href="home.html">Shop</a>
+      <a href="product.html">Collections</a>
+      <a href="home.html">Sustainability</a>
+      <a href="home.html">Journal</a>
+      <a href="product.html"> <img src="image/car.png" style="height:20px;"> </a>
+      <a href="login.html"><img src="image/avatar.png" style="height:20px;"></a>
     </nav>
   </header>
 
@@ -617,15 +547,15 @@ a {
     </div>
 
     <nav class="footer-center">
-      <a href="#">Shipping Policy</a>
-      <a href="#">Privacy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Contact Us</a>
+      <a href="contact.html">Shipping Policy</a>
+      <a href="contact.html">Privacy</a>
+      <a href="contact.html">Terms of Service</a>
+      <a href="contact.html">Contact Us</a>
     </nav>
 
     <div class="footer-right">
-      <i class="fa-solid fa-share-nodes icon-share"> <img src="image/share.png"></i>
-      <i class="fa-solid fa-globe icon-globe"> <img src="image/connect.png"></i>
+      <i class=> <img src="image/share.png"></i>
+      <i class=> <img src="image/connect.png"></i>
     </div>
   </footer>
 

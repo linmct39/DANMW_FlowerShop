@@ -109,7 +109,7 @@ a {
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
-    /* Thay url thành đường dẫn ảnh nền vườn hoa của bạn */
+
     background: url('background-garden.jpg') no-repeat center center;
     background-size: cover;
     position: relative;
@@ -181,7 +181,7 @@ a {
 .form-group label {
     display: block;
     font-size: 13px;
-    color: #e58a9c; /* Màu chữ Label hồng */
+    color: #e58a9c;
     font-weight: 600;
     margin-bottom: 6px;
     margin-left: 15px;
@@ -191,7 +191,7 @@ a {
     width: 100%;
     padding: 12px 20px;
     border: 1.5px solid #f7d6dc;
-    border-radius: 30px; /* Bo tròn hai đầu */
+    border-radius: 30px; 
     outline: none;
     font-size: 15px;
     transition: border-color 0.3s;
@@ -412,15 +412,15 @@ a {
       <div class="card-right-form">
         <h2>ĐĂNG NHẬP</h2>
         
-        <form class="auth-form">
+        <form class="auth-form" id="login-form">
           <div class="form-group">
             <label>Email</label>
-            <input type="email" placeholder="">
+            <input type="email" id="email-input" placeholder="Nhập email..." required>
           </div>
           
           <div class="form-group">
             <label>Mật Khẩu</label>
-            <input type="password" placeholder="">
+            <input type="password" id="password-input" placeholder="Nhập mật khẩu..." required>
             <a href="#" class="forgot-password">Quên Mật Khẩu?</a>
           </div>
           
@@ -437,7 +437,7 @@ a {
                 <a href=""> <img src="image/tiktok.png"></a>
         </div>
         <div class="register-redirect">
-          Chưa có tài khoản? <a href="#">Đăng ký</a>
+          Chưa có tài khoản? <a href="register.html">Đăng ký</a>
         </div>
       </div>
       
@@ -452,18 +452,41 @@ a {
   </div>
 
   <nav class="footer-center">
-    <a href="#">Shipping Policy</a>
-    <a href="#">Privacy</a>
-    <a href="#">Terms of Service</a>
-    <a href="#">Contact Us</a>
-  </nav>
+      <a href="contact.html">Shipping Policy</a>
+      <a href="contact.html">Privacy</a>
+      <a href="contact.html">Terms of Service</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
 
   <div class="footer-right">
     <i class="fa-solid fa-share-nodes icon-share"> <img src="image/share.png"></i>
-    <i class="fa-solid fa-globe icon-globe"> <img src="image/connect.png"></im></i>
+    <i class="fa-solid fa-globe icon-globe"> <img src="image/connect.png"></i>
   </div>
 
 </footer>
 </div>
+
+<script>
+   document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const emailValue = document.getElementById('email-input').value.trim();
+    const passwordValue = document.getElementById('password-input').value;
+
+    const savedAccount = localStorage.getItem(emailValue);
+
+    if (savedAccount) {
+        const user = JSON.parse(savedAccount);
+        if (user.password === passwordValue) {
+            alert(`Chào mừng ${user.name} đã quay trở lại!`);
+            window.location.href = 'home.html';
+            return;
+        }
+    }
+
+    alert('Tài khoản hoặc mật khẩu không chính xác!');
+});
+</script>
+
 </body>
 </html>

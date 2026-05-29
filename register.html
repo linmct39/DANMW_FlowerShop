@@ -29,9 +29,6 @@ a {
     transition: all 0.3s ease;
 }
 
-/* ==========================================
-   HEADER STYLES
-   ========================================== */
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -79,10 +76,6 @@ a {
     color: #f7607e;
     border-bottom: 2px solid #f7607e;
 }
-
-/* ==========================================
-   REGISTER WRAPPER & CARD STYLES
-   ========================================== */
 .login-wrapper {
     flex: 1;
     display: flex;
@@ -107,7 +100,7 @@ a {
     display: flex;
     width: 900px;
     max-width: 100%;
-    height: 580px; /* Tăng nhẹ chiều cao để vừa vặn 4 ô input thoải mái */
+    height: 580px; 
     background-color: #e5a9b4; 
     border-radius: 24px;
     overflow: hidden;
@@ -200,10 +193,6 @@ a {
 .btn-submit:hover {
     background-color: #7a1e35;
 }
-
-/* ==========================================
-   FOOTER STYLES
-   ========================================== */
 .main-footer {
     display: flex;
     justify-content: space-between; 
@@ -272,7 +261,7 @@ a {
         height: auto;
     }
     .card-left-banner {
-        display: none; /* Ẩn banner ở màn hình nhỏ giống cấu trúc login */
+        display: none; 
     }
     .main-footer {
         flex-direction: column; 
@@ -300,7 +289,7 @@ a {
       <div class="hotline">HOTLINE: 1900 333 5688</div>
     </div>
     <nav class="header-nav">
-      <a href="#" class="active">Shop</a>
+      <a href="#">Shop</a>
       <a href="#">Collections</a>
       <a href="#">Sustainability</a>
       <a href="#">Journal</a>
@@ -321,25 +310,25 @@ a {
       <div class="card-right-form">
         <h2>ĐĂNG KÝ</h2>
         
-        <form class="auth-form">
+        <form class="auth-form" id="register-form">
           <div class="form-group">
             <label>Họ và tên</label>
-            <input type="text" placeholder="">
+            <input type="text" id="reg-name" placeholder="Nhập họ và tên..." required>
           </div>
 
           <div class="form-group">
             <label>Số điện thoại</label>
-            <input type="tel" placeholder="">
+            <input type="tel" id="reg-phone" placeholder="Nhập số điện thoại..." required>
           </div>
           
           <div class="form-group">
             <label>Email</label>
-            <input type="email" placeholder="">
+            <input type="email" id="reg-email" placeholder="Nhập địa chỉ email..." required>
           </div>
           
           <div class="form-group">
             <label>Mật Khẩu</label>
-            <input type="password" placeholder="">
+            <input type="password" id="reg-password" placeholder="Tối thiểu 6 ký tự..." required>
           </div>
           
           <button type="submit" class="btn-submit">Đăng Ký</button>
@@ -357,10 +346,10 @@ a {
     </div>
 
     <nav class="footer-center">
-      <a href="#">Shipping Policy</a>
-      <a href="#">Privacy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Contact Us</a>
+      <a href="contact.html">Shipping Policy</a>
+      <a href="contact.html">Privacy</a>
+      <a href="contact.html">Terms of Service</a>
+      <a href="contact.html">Contact Us</a>
     </nav>
 
     <div class="footer-right">
@@ -370,5 +359,32 @@ a {
   </footer>
 
 </div>
+
+<script>
+   document.getElementById('register-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('reg-name').value.trim();
+    const phone = document.getElementById('reg-phone').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const password = document.getElementById('reg-password').value;
+
+    if (!/^[0-9]{10}$/.test(phone)) {
+        alert('Số điện thoại phải đủ 10 chữ số!');
+        return;
+    }
+    if (password.length < 6) {
+        alert('Mật khẩu phải từ 6 ký tự trở lên!');
+        return;
+    }
+
+    const userAccount = { name, phone, email, password };
+    localStorage.setItem(email, JSON.stringify(userAccount)); 
+
+    alert(`Chúc mừng ${name} đã đăng ký thành công!`);
+    window.location.href = 'login.html';
+});
+</script>
+
 </body>
 </html>

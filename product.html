@@ -30,7 +30,6 @@ a {
     transition: all 0.3s ease;
 }
 
-/* KHUNG GIỚI HẠN DIỆN TÍCH - Giúp phần thân đồng bộ lề với header/footer */
 .container {
     width: 100%;
     max-width: 1300px;
@@ -39,9 +38,6 @@ a {
     box-sizing: border-box;
 }
 
-/* ==========================================
-   HEADER STYLES (Giữ nguyên gốc của bạn)
-   ========================================== */
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -118,10 +114,6 @@ a {
     color: #333;
     cursor: pointer;
 }
-
-/* ==========================================
-   MAIN DETAIL STYLES (Giao diện Chi tiết sản phẩm)
-   ========================================== */
 .detail-wrapper {
     flex: 1;
     padding-top: 30px;
@@ -129,7 +121,6 @@ a {
     background-color: #ffffff;
 }
 
-/* Breadcrumb */
 .breadcrumb {
     display: flex;
     align-items: center;
@@ -148,7 +139,6 @@ a {
     font-weight: 600;
 }
 
-/* Bố cục Chi tiết (2 Cột) */
 .product-detail-core {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
@@ -156,7 +146,6 @@ a {
     margin-bottom: 80px;
 }
 
-/* Cột Trái - Ảnh lớn */
 .detail-gallery {
     width: 100%;
 }
@@ -175,7 +164,6 @@ a {
     object-fit: cover;
 }
 
-/* Cột Phải - Thông tin chữ */
 .detail-info {
     display: flex;
     flex-direction: column;
@@ -196,7 +184,6 @@ a {
     font-weight: 700;
 }
 
-/* Đặc điểm thành phần */
 .product-features {
     list-style: none;
     display: flex;
@@ -221,7 +208,7 @@ a {
     font-weight: bold;
 }
 
-/* Khối Cam kết */
+
 .shop-commitments {
     display: flex;
     flex-direction: column;
@@ -255,7 +242,7 @@ a {
     line-height: 1.4;
 }
 
-/* Chọn số lượng và Mua hàng */
+
 .purchase-actions {
     display: flex;
     align-items: center;
@@ -335,7 +322,9 @@ a {
     color: #b05c6d;
 }
 
-/* Related Products (Sản phẩm gợi ý) */
+.btn-wishlist i.liked {
+    color: #982845;
+}
 .related-products {
     margin-top: 40px;
     border-top: 1px solid #eaeaea;
@@ -360,6 +349,7 @@ a {
 .related-card {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .related-img-box {
@@ -394,10 +384,6 @@ a {
     font-weight: 700;
     color: #222222;
 }
-
-/* ==========================================
-   FOOTER STYLES (ĐÃ LẤY SANG TỪ CODE CŨ ĐÚNG YÊU CẦU)
-   ========================================== */
 .logo_frooter {
     font-size: 16px;
     font-family: 'Georgia', serif;
@@ -410,7 +396,7 @@ a {
     display: flex;
     justify-content: space-between; 
     align-items: center;            
-    padding: 30px 60px;            
+    padding: 30px 60px;             
     background-color: #f7f7f7;      
     border-top: 1px solid #eaeaea;  
 }
@@ -506,17 +492,17 @@ a {
   
   <header class="main-header">
     <div class="header-left">
-      <div class="logo">Floral Vibes</div>
+      <div class="logo"><a href="home.html">Floral Vibes</a></div>
       <div class="hotline">HOTLINE: 1900 333 5688</div>
       <div class="social-icons"> </div>
     </div>
-    <nav class="header-nav">
-      <a href="#">Shop</a>
-      <a href="#">Collections</a>
-      <a href="#">Sustainability</a>
-      <a href="#">Journal</a>
-      <a href="#"> <img src="image/car.png" alt="Cart"> </a>
-      <a href="#"><img src="image/avatar.png" alt="Avatar"></a>
+   <nav class="header-nav">
+      <a href="home.html">Shop</a>
+      <a href="product.html">Collections</a>
+      <a href="home.html">Sustainability</a>
+      <a href="home.html">Journal</a>
+      <a href="product.html"> <img src="image/car.png" style="height:20px;"> </a>
+      <a href="login.html"><img src="image/avatar.png" style="height:20px;"></a>
     </nav>
     <div class="header-right"></div>
   </header>
@@ -525,26 +511,26 @@ a {
     <div class="container">
       
       <div class="breadcrumb">
-        <a href="#">Trang Chủ</a> / <a href="#">Shop</a> / <span class="current">Chi Tiết Sản Phẩm</span>
+        <a href="home.html">Trang Chủ</a> / <a href="home.html">Shop</a> / <span class="current" id="breadcrumb-title">Chi Tiết Sản Phẩm</span>
       </div>
       
       <section class="product-detail-core">
         
         <div class="detail-gallery">
           <div class="main-image-box">
-            <img src="image/product/Background.png" alt="Sản Phẩm Đang Xem">
+            <img id="product-img" src="image/product/Background.png" alt="Sản Phẩm Đang Xem">
           </div>
         </div>
         
         <div class="detail-info">
-          <h1 class="product-title">Hồng Pastel Nhẹ Nhàng</h1>
-          <div class="product-price">450.000 VND</div>
+          <h1 class="product-title" id="product-title">Hồng Pastel Nhẹ Nhàng</h1>
+          <div class="product-price" id="product-price">450.000 VND</div>
           
           <ul class="product-features">
-            <li>Hoa hồng mẫu đơn pastel nhập khẩu: 15 bông</li>
-            <li>Hoa lá phụ bạc trang trí kèm theo phong cách Pháp</li>
-            <li>Giấy gói lụa cao cấp tone màu kem dâu</li>
-            <li>Tặng kèm banner thiệp chúc mừng cá nhân hóa</li>
+            <li>Hoa tươi cao cấp nhập khẩu tuyển chọn</li>
+            <li>Phối lá phụ bạc trang trí nghệ thuật kèm theo</li>
+            <li>Giấy gói lụa chống thấm nước chuyên dụng thời trang</li>
+            <li>Tặng kèm thiệp viết tay nhắn gửi lời thương</li>
           </ul>
           
           <div class="shop-commitments">
@@ -565,11 +551,11 @@ a {
               <input type="text" id="quantity" value="1" readonly>
               <button type="button" onclick="changeQty(1)">+</button>
             </div>
-            <button type="button" class="btn-primary-add">ADD TO CART</button>
+            <button type="button" class="btn-primary-add" id="add-to-cart-btn">ADD TO CART</button>
           </div>
           
-          <button type="button" class="btn-wishlist">
-            <i class="fa-regular fa-heart"></i> Yêu thích sản phẩm
+          <button type="button" class="btn-wishlist" id="wishlist-btn">
+            <i class="fa-regular fa-heart" id="heart-icon"></i> <span id="wishlist-text">Yêu thích sản phẩm</span>
           </button>
         </div>
         
@@ -580,7 +566,7 @@ a {
         
         <div class="related-grid">
           
-          <div class="related-card">
+          <div class="related-card" onclick="viewRelated('Tulip Trắng Thuần Khiết', '520.000 VND', 'image/product/Elegant White Tulips.png')">
             <div class="related-img-box">
               <img src="image/product/Elegant White Tulips.png" alt="Tulip">
             </div>
@@ -588,7 +574,7 @@ a {
             <span class="related-price">520.000 VND</span>
           </div>
 
-          <div class="related-card">
+          <div class="related-card" onclick="viewRelated('Hồng Đỏ Nhung Cổ Điển', '600.000 VND', 'image/product/Background-1.png')">
             <div class="related-img-box">
               <img src="image/product/Background-1.png" alt="Rose Red">
             </div>
@@ -596,7 +582,7 @@ a {
             <span class="related-price">600.000 VND</span>
           </div>
 
-          <div class="related-card">
+          <div class="related-card" onclick="viewRelated('Bó Hoa Ngẫu Hứng', '380.000 VND', 'image/product/Background-2.png')">
             <div class="related-img-box">
               <img src="image/product/Background-2.png" alt="Bouquet">
             </div>
@@ -604,7 +590,7 @@ a {
             <span class="related-price">380.000 VND</span>
           </div>
 
-          <div class="related-card">
+          <div class="related-card" onclick="viewRelated('Hướng Dương Nắng Mai', '320.000 VND', 'image/product/hoahuongduong.png')">
             <div class="related-img-box">
               <img src="image/product/hoahuongduong.png" alt="Sunflower">
             </div>
@@ -625,21 +611,22 @@ a {
     </div>
 
     <nav class="footer-center">
-      <a href="#">Shipping Policy</a>
-      <a href="#">Privacy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Contact Us</a>
+      <a href="contact.html">Shipping Policy</a>
+      <a href="contact.html">Privacy</a>
+      <a href="contact.html">Terms of Service</a>
+      <a href="contact.html">Contact Us</a>
     </nav>
 
     <div class="footer-right">
-      <i><img src="image/share.png"></i>
-      <i><img src="image/connect.png"></i>
+      <i><img src="image/share.png" alt="Share"></i>
+      <i><img src="image/connect.png" alt="Connect"></i>
     </div>
   </footer>
 
 </div>
 
 <script>
+  
   function changeQty(amount) {
     var qtyInput = document.getElementById('quantity');
     var currentQty = parseInt(qtyInput.value);
@@ -648,6 +635,57 @@ a {
       qtyInput.value = newQty;
     }
   }
+
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const price = urlParams.get('price');
+    const img = urlParams.get('img');
+
+
+    if (name && price && img) {
+        document.getElementById('product-title').innerText = decodeURIComponent(name);
+        document.getElementById('breadcrumb-title').innerText = decodeURIComponent(name);
+        document.getElementById('product-price').innerText = decodeURIComponent(price);
+        document.getElementById('product-img').src = decodeURIComponent(img);
+    }
+  });
+
+ 
+  function viewRelated(name, price, imgPath) {
+      document.getElementById('product-title').innerText = name;
+      document.getElementById('breadcrumb-title').innerText = name;
+      document.getElementById('product-price').innerText = price;
+      document.getElementById('product-img').src = imgPath;
+      document.getElementById('quantity').value = 1; 
+      window.scrollTo({ top: 0, behavior: 'smooth' }); 
+  }
+
+
+  document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+      const title = document.getElementById('product-title').innerText;
+      const qty = document.getElementById('quantity').value;
+      alert(`Đã thêm thành công ${qty} bó [${title}] vào giỏ hàng của bạn!`);
+  });
+
+
+  let isLiked = false;
+  document.getElementById('wishlist-btn').addEventListener('click', () => {
+      const heartIcon = document.getElementById('heart-icon');
+      const wishlistText = document.getElementById('wishlist-text');
+      isLiked = !isLiked;
+
+      if (isLiked) {
+          heartIcon.className = "fa-solid fa-heart liked";
+          wishlistText.innerText = "Đã yêu thích";
+          heartIcon.style.color = "#982845";
+      } else {
+          heartIcon.className = "fa-regular fa-heart";
+          wishlistText.innerText = "Yêu thích sản phẩm";
+          heartIcon.style.color = "#e58a9c";
+      }
+  });
 </script>
 </body>
 </html>
