@@ -23,6 +23,40 @@ function updateCartBadge() {
     }
     
     updateActiveNav();
+    updateProfileLink();
+}
+
+function updateProfileLink() {
+    const profileLink = document.getElementById('user-profile-link');
+    const logoutLink = document.getElementById('logout-link');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    
+    if (profileLink) {
+        if (currentUser) {
+            if (currentUser.role === 'admin') {
+                profileLink.href = 'admindashboard.html';
+            } else {
+                profileLink.href = 'coming-soon.html';
+            }
+        } else {
+            profileLink.href = 'login.html';
+        }
+    }
+
+    if (logoutLink) {
+        if (currentUser) {
+            logoutLink.style.display = 'inline-block';
+        } else {
+            logoutLink.style.display = 'none';
+        }
+    }
+}
+
+function handleLogout(event) {
+    event.preventDefault();
+    localStorage.removeItem('currentUser');
+    alert('Đã đăng xuất thành công!');
+    window.location.href = 'home.html';
 }
 
 function updateActiveNav() {
